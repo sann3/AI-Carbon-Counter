@@ -1,0 +1,37 @@
+name: AI Carbon counter
+description: Count the karbon for a model training
+tags:
+initialize:
+  outputs: ['yaml']
+  plugins: 
+    cloud-metadata:
+      path: "@grnsft/if-plugins"
+      method: CloudMetadata
+    teads-curve:
+      path: '@grnsft/if-unofficial-plugins'
+      method: TeadsCurve
+    watttime:
+      path: '@grnsft/if-unofficial-plugins'
+      method: WattTimeGridEmissions
+    operation:
+      path: "@grnsft/if-plugins"
+      method: Multiply
+      global-config:
+        input-parameters: ['cpu/energy', 'grid/carbon-intensity']
+        output-parameter: 'carbon'
+
+tree: 
+  children:
+    application:
+      pipeline:
+        - cloud-metadata
+        - teads-curve
+        - watttime
+        - operation
+      inputs:
+        - timestamp: "2024-02-26 00:00:00"
+          duration: 36000
+          cloud/instance-type: Standard_NV36adms_A10_v5
+          cloud/vendor: azure
+          cloud/region: westus3
+          cpu/utilization: 100
