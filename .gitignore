@@ -1,0 +1,7 @@
+.env
+
+### IntelliJ IDEA ###
+.idea
+
+### VS code ###
+.vscode/

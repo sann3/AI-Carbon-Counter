@@ -1,0 +1,61 @@
+name: AI Carbon counter
+description: Count the karbon for a model training
+tags: null
+initialize:
+  plugins:
+    cloud-metadata:
+      path: '@grnsft/if-plugins'
+      method: CloudMetadata
+    teads-curve:
+      path: '@grnsft/if-unofficial-plugins'
+      method: TeadsCurve
+    watttime:
+      path: '@grnsft/if-unofficial-plugins'
+      method: WattTimeGridEmissions
+    operation:
+      path: '@grnsft/if-plugins'
+      method: Multiply
+      global-config:
+        input-parameters:
+          - cpu/energy
+          - grid/carbon-intensity
+        output-parameter: carbon
+  outputs:
+    - yaml
+if-version: v0.3.1
+tree:
+  children:
+    application:
+      pipeline:
+        - cloud-metadata
+        - teads-curve
+        - watttime
+        - operation
+      inputs:
+        - timestamp: '2024-02-26 00:00:00'
+          duration: 36000
+          cloud/instance-type: Standard_NV36adms_A10_v5
+          cloud/vendor: azure
+          cloud/region: westus3
+          cpu/utilization: 100
+      outputs:
+        - timestamp: '2024-02-26 00:00:00'
+          duration: 36000
+          cloud/instance-type: Standard_NV36adms_A10_v5
+          cloud/vendor: azure
+          cloud/region: westus3
+          cpu/utilization: 100
+          vcpus-allocated: 36
+          vcpus-total: 48
+          memory-available: 880
+          physical-processor: AMD EPYC™ 74F3V
+          cpu/thermal-design-power: 240
+          cloud/region-cfe: CAISO
+          cloud/region-em-zone-id: US-CAL-CISO
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/region-location: US West (N. California)
+          cloud/region-geolocation: 34.0497,-118.1326
+          cpu/energy: 1.8359999999999999
+          geolocation: 34.0497,-118.1326
+          grid/carbon-intensity: 2066.0493967838142
+          carbon: 3793.2666924950827
