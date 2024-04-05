@@ -1,5 +1,5 @@
 # AI-Carbon-Counter
-Count the amount of carbon used for creating a model using [Impact framework](https://if.greensoftware.foundation)
+Count the amount of carbon used for creating a AI model using [Impact framework](https://if.greensoftware.foundation)
 
 ## Required input params
 - timestamp - When the training for started
