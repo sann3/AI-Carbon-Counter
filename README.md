@@ -2,12 +2,12 @@
 Count the amount of carbon used for creating a AI model using [Impact framework](https://if.greensoftware.foundation)
 
 ## Required input params
-- timestamp - When the training for started
-- duration - how much took to complete the training in seconds
-- cloud/instance-type - Cloud instance name understandable by [cloud-metadata plugin](https://github.com/Green-Software-Foundation/if-plugins/blob/main/src/lib/cloud-metadata/README.md)
-- cloud/vendor - Cloud vendor like azure, gcp, aws understandable by [cloud-metadata plugin](https://github.com/Green-Software-Foundation/if-plugins/blob/main/src/lib/cloud-metadata/README.md)
-- cloud/region - Cloud regin where the machines were located cloud/region understandable by [cloud-metadata plugin](https://github.com/Green-Software-Foundation/if-plugins/blob/main/src/lib/cloud-metadata/README.md)
-- cpu/utilization - If you know approximate usage percentage, otherwise go with 100
+- `timestamp` - When the training for started
+- `duration` - how much took to complete the training in seconds
+- `cloud/instance-type` - Cloud instance name understandable by [cloud-metadata plugin](https://github.com/Green-Software-Foundation/if-plugins/blob/main/src/lib/cloud-metadata/README.md)
+- `cloud/vendor` - Cloud vendor like azure, gcp, aws understandable by [cloud-metadata plugin](https://github.com/Green-Software-Foundation/if-plugins/blob/main/src/lib/cloud-metadata/README.md)
+- `cloud/region` - Cloud regin where the machines were located cloud/region understandable by [cloud-metadata plugin](https://github.com/Green-Software-Foundation/if-plugins/blob/main/src/lib/cloud-metadata/README.md)
+- `cpu/utilization` - If you know approximate usage percentage, otherwise go with 100
 
 ## Other information
 WattTime API requires activation of subscription before usage. Please refer to the [WattTime website](https://watttime.org/docs-dev/data-plans/) for more information.
