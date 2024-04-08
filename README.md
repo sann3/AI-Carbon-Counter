@@ -34,3 +34,9 @@ ie --manifest ./ai_carbon_counter.yml --output output
 ```
 
 The final output will be available in output file. Look for carbon variable for the carbon usage in grams.
+
+## Limitations
+
+- duration to be within 32 days (WattTime plugin).
+- Emissions are aggregated for every 5 minutes regardless of the granularity of the inputs (WattTime plugin).
+- Limited instance types support (cloud-metadata plugin)
